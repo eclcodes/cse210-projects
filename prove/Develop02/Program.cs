@@ -4,6 +4,47 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop02 World!");
+        bool exit = false;
+        Journal Journal = new();
+        Prompts Prompts = new();
+        Console.WriteLine("Welcome to your journal program!");
+        do
+        {
+            Console.WriteLine("Please choose what you would like to do.");
+            Console.WriteLine("1.Write");
+            Console.WriteLine("2.Display");
+            Console.WriteLine("3.Load");
+            Console.WriteLine("4.Save");
+            Console.WriteLine("5.Add a new Prompt");
+            Console.WriteLine("6.Quit");
+            string userSelection = Console.ReadLine();
+            
+
+            if (userSelection == "1")
+            {
+                Journal.AddEntry();
+            }
+            else if (userSelection == "2")
+            {
+                Journal.DisplayEntries();
+            }
+            else if (userSelection == "3")
+            {
+                Journal.LoadFile();
+            }
+            else if (userSelection == "4")
+            {
+                Journal.SaveFile();
+            }
+            else if (userSelection == "5")
+            {
+                Prompts.addPrompt();
+            }
+            else
+            {
+                exit = true;
+            }
+        } while (!exit);
+        Environment.Exit(0);
     }
 }
